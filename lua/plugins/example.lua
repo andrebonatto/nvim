@@ -61,6 +61,28 @@ return {
         winblend = 0,
       },
     },
+
+    specs = {
+      {
+        "ANGkeith/telescope-terraform-doc.nvim",
+        ft = { "terraform", "hcl" },
+        config = function()
+          LazyVim.on_load("telescope.nvim", function()
+            require("telescope").load_extension("terraform_doc")
+          end)
+        end,
+      },
+
+      {
+        "cappyzawa/telescope-terraform.nvim",
+        ft = { "terraform", "hcl" },
+        config = function()
+          LazyVim.on_load("telescope.nvim", function()
+            require("telescope").load_extension("terraform")
+          end)
+        end,
+      },
+    },
   },
 
   -- add pyright to lspconfig
@@ -95,6 +117,7 @@ return {
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig
         tsserver = {},
+        terraformls = {},
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
@@ -134,6 +157,8 @@ return {
         "typescript",
         "vim",
         "yaml",
+        "terraform",
+        "hcl",
       },
     },
   },
@@ -191,6 +216,7 @@ return {
         "shellcheck",
         "shfmt",
         "flake8",
+        "tflint",
       },
     },
   },
