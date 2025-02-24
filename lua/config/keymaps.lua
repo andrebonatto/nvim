@@ -15,6 +15,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 keymap.set("t", "<Esc>", "<C-\\><C-n><CR>")
 vim.keymap.set("i", "jj", "<Esc>")
 
+vim.keymap.set("n", "<C-\\>", ":terminal<CR>", { noremap = true, silent = true })
+
 -- Delete without yank
 keymap.set("n", "x", '"_x')
 
