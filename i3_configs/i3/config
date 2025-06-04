@@ -229,6 +229,10 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id feh --bg-fill ~/Pictures/2016-BMW-M6-GT3-001-1080.jpg
 exec --no-startup-id /usr/bin/dunst
 
+exec --no-startup-id flameshot
+#exec --no-startup-id NSGClient
+#exec_always --no-startup-id picom
+
 exec i3 --force-xinerama -V >>~/.i3/i3log 2>&1
 
 
@@ -258,6 +262,16 @@ bar {
             binding_mode       #1f222d #81a1c1    #2e3440
     }
 }
+
+# Window color settings
+# class                 border  backgr. text    indicator
+#client.focused          #81a1c1 #81a1c1 #ffffff #81a1c1
+#client.unfocused        #2e3440 #1f222d #888888 #1f222d
+#client.focused_inactive #2e3440 #1f222d #888888 #1f222d
+#client.placeholder      #2e3440 #1f222d #888888 #1f222d
+#client.urgent           #900000 #900000 #ffffff #900000
+#
+#client.background       #242424
 
 #####################################
 # Application menu handled by rofi: #
@@ -306,13 +320,18 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
 bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 ##exec setxkbmap -option compose:ralt
 
-exec --no-startup-id flameshot
+
 bindsym $mod+Shift+s exec flameshot gui
 
 #bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+w exec //usr/bin/google-chrome
 bindsym $mod+n exec /usr/bin/thunar
 bindsym $mod+Shift+g exec /usr/bin/github-desktop
+bindsym $mod+Shift+f exec /opt/forticlient/gui/FortiClient
+
+#bindsym button1 nop
+
+for_window [class="^.*"] border pixel 2
 
 
 ##################

@@ -1,0 +1,90 @@
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install wget curl git gnome-tweaks zsh gcc gcc+ fzf bat chrome-gnome-shell gnome-tweaks
+chsh -s /usr/bin/zsh
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Copiar .fonts do backup e configurar fonte no terminal (MesloLGS NF)
+# Logout e login novamente
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Alterar o tema no arquivo .zshrc
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+# Fechar e abir terminal
+
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions 
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+# Configurar plugin no .zshrc
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+# Adicionar ao final do arquivo .zshrc
+alias k=kubectl
+alias v=nvim
+alias vim=nvim
+cdg() {
+    cd ~/Documents/GitHub/
+    cd $1
+}
+lg() {
+    l ~/Documents/GitHub
+}
+vg() {
+    cd ~/Documents/GitHub/
+    cd $1
+    v .
+}
+alias c='clear'
+alias ctar='tar -cvvzf'
+alias untar='tar -xvfz'
+alias pshell='poetry shell'
+
+export KUBE_EDITOR='nvim'
+
+# Copiar nvim para pasta binary e criar link no bin
+sudo ln -s /home/bonatto/Documents/binary/nvim-11.1/bin/nvim /usr/local/bin/nvim
+
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+nvim
+
+cd /.config
+mv nvim nvim_install_default
+
+# Adicionar no source.lists
+sudo vi /etc/apt/sources.list
+deb http://archive.ubuntu.com/ubuntu/ jammy main universe
+
+sudo apt update -y && sudo apt upgrade -y
+
+# NSGClient
+sudo apt install dpkg-dev libfile-dirlist-perl libfile-homedir-perl libfile-touch-perl libfile-which-perl libipc-run-perl libmoo-perl patchutils wdiff
+sudo apt install libproxy1-plugin-webkit libnl-cli-3-200
+sudo apt install dctrl-tools dput dupload libdistro-info-perl libdpkg-perl libgit-wrapper-perl libjson-perl liblist-compare-perl libstring-shellquote-perl licensecheck lintian python3-magic python3-unidiff
+sudo apt install dpkg-dev libproxy1-plugin-webkit
+sudo apt install devscripts
+sudo apt install dpkg-sig
+sudo apt install libwebkit2gtk-4.0-37
+
+sudo dpkg -i nsginstaller64.deb
+sudo systemctl daemon-reload
+
+
+sudo apt install i3 i3lock-fancy rofi autorandr thunar light pulseaudio-utils brightnessctl libpulse-dev i3lock	 galculator flameshot blueman lxappearance feh ripgrep fd-find xclip
+
+# Logout
+# Iniciar com a interface i3
+# Mover a pasta ~/.config/i3 para ~/.config/i3_default
+# Copiar do backup as pastas i3 i3status e rofi para a pasta ~/.config/
+# Configurar tema escuro, terminal e editor de texto
+
+# Alterar aplicativo default para arquivos
+xdg-mime default thunar.desktop inode/directory
+
+# Instalar gcloud
+sudo apt-get install apt-transport-https ca-certificates gnupg curl
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+sudo apt-get update && sudo apt-get install google-cloud-cli
+sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
