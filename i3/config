@@ -226,12 +226,13 @@ bindsym $mod+r mode "resize"
 # autostart applications/services on login: #
 #############################################
 #exec --no-startup-id sleep 1
-exec --no-startup-id feh --bg-fill ~/Pictures/2016-BMW-M6-GT3-001-1080.jpg
+#exec --no-startup-id feh --bg-fill ~/Pictures/2016-BMW-M6-GT3-001-1080.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/nsx-gt3_1.jpg
 exec --no-startup-id /usr/bin/dunst
 
 exec --no-startup-id flameshot
 #exec --no-startup-id NSGClient
-#exec_always --no-startup-id picom
+exec_always --no-startup-id picom
 
 exec i3 --force-xinerama -V >>~/.i3/i3log 2>&1
 
@@ -245,7 +246,7 @@ bar {
     height 20
 	  position top
     font pango:FiraSans Italic 09
-	  status_command i3status
+	  status_command i3blocks
     tray_padding 2
     strip_workspace_numbers yes
 
