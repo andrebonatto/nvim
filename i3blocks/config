@@ -8,9 +8,9 @@ interval=300
 color=#FEC925
 signal=2
 
-[IPADDRESS]
-command=hostname -I | awk '{printf ("󰩠  ") $1}'
-interval=60
+[NETWORK]
+command=~/.config/i3blocks/network/network.sh
+interval=30
 color=#00EB6E
 
 [DISK]
