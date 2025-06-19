@@ -29,7 +29,7 @@ if [ $ACPI_CODE -eq 0 ]; then
   fi
 
   # Print full text (for i3blocks, waybar, etc.)
-  echo "$BAT_ICON  $BAT_LEVEL ⏳$TIME_LEFT"
+  echo "$BAT_ICON  $BAT_LEVEL 󱦟 $TIME_LEFT"
 
   # Print short text
   echo "BAT: $BAT_LEVEL"
