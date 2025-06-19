@@ -27,4 +27,4 @@ if [ "$BLOCK_BUTTON" -eq 1 ]; then
 fi
 
 # Mostra o texto do bloco (ícone + data)
-date '+  %a, %d %b - %H:%M    '
+date '+  %a, %d %b - %H:%M '
